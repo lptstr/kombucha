@@ -48,6 +48,7 @@ scoop install kombucha
 ```
 
 ## Usage
+
 First, `cd` into your project directory.
 ```
 cd <blah>
@@ -60,54 +61,20 @@ Then, install some packages :grin:
 ```
 kombucha install burnttoast@0.6.3 pslogging
 ```
-Then, in your PowerShell code, you can import the module using the `ko
+Then, in your PowerShell code, you can import the module using the `kpm-client.ps1` file that the Kombucha CLI copied into your project directory on init.
 
-## Easter eggs
-I've buried around 8  easter eggs in Mouse. If you think you've found one, please file an issue with the `easter egg` label!
+First, import that file, the import the modules you installed using the `imports` function:
+```powershell
+. "$psscriptroot\kpm-client.ps1"
+imports 'burnttoast'
+imports 'pslogging'
 
-## Contributing
-PR's are welcome, as long as they conform to the basic code style of this repository:
-- In the command implementation files (e.g. `libexec/mouse-help.ps1`), the Powershell code should **NOT** use any aliases. (for example, type `Foreach-Object { ... }` instead of `% { ... }`.)
-- In the supporting files, such as `lib/core.ps1`, code is expected to use every alias possible (type `gm` instead of `Get-Member`).
-Remember to contribute all your work to branch `develop` - master is strictly for finished, tested, debugged code ready for deployment. Contributions to branch `master` **WILL NOT** be accepted.
+# thousands of lines later...
 
-### Setting up Mouse repository for development
-When cloning the Mouse repository, use the `--recurse` parameter because the Mouse repository contains multiple submodules:
-
-**Without SSH**
-`git clone http://github.com/lptstr/mouse.git --recurse --verbose --progress`
-
-**With SSH**
-`git clone git@github.com:lptstr/mouse.git --recurse --verbose --progress`
-
-Also, make sure when installing Mouse to test and debug new features pushed to the develop branch, to run `mouse develop` to switch to the devlop branch.
-
-
-### Project Layout
+New-BurntToastNotification # call a function in the 'burnttoast' module
 ```
 
-source/mouse
-| LICENSE			               	The license for Mouse  
-| README.md				             The README                
-|                                                    
-+-------bin					            Main entrypoint for Mouse
-|
-+-------lib					            Utility scripts and dependencies
-|     |                                                
-|     +---cows			          	Dependency for cowsay.ps1 
-|     |                                            
-|     |
-|     +---fonts			         	Dependency for figlet.exe 
-|     |                                            
-|     |                                            
-|     \---lib                                       
-|                                                  
-+---libexec				             Mouse command implementations
-|   
-+---libsrc                  Mouse submodules and code for lib dependencies  
-| 
-\---share				              	Shared data
-```
+Should you need to update or remove a module, you can use the `update` and `uninstall` commands.
 
 ## Credits
 Thanks to the maintainers of [Scoop](http://github.com/lukesampson/scoop), especially Luke Sampson, from whose repository I stole a lot of stuff.
