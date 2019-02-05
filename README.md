@@ -2,15 +2,15 @@
 <p align="center">
 <img src="https://raw.githubusercontent.com/lptstr/lptstr-images/master/proj/kombucha/kombucha-logo-github.png" alt="Kombucha for ever!"/></p>
 <p align="center">
-<b><a href="https://github.com/lptstr/mouse#features">Features</a></b>
+<b><a href="https://github.com/lptstr/kombucha#features">Features</a></b>
 |
-<b><a href="https://github.com/lptstr/mouse#installation-requirements">Installation Requirements</a></b>
+<b><a href="https://github.com/lptstr/kombucha#installation-requirements">Installation Requirements</a></b>
 |
-<b><a href="https://github.com/lptstr/mouse#installation">Installation</a></b>
+<b><a href="https://github.com/lptstr/kombucha#installation">Installation</a></b>
 |
-<b><a href="https://github.com/lptstr/mouse/wiki">Usage</a></b>
+<b><a href="https://github.com/lptstr/mouse/kombucha#usage">Usage</a></b>
 |
-<b><a href="https://github.com/lptstr/mouse#contributing">Contributing</a></b>
+<b><a href="https://github.com/lptstr/kombucha#packages">Packages</a></b>
 </p>
 
 - - -
@@ -75,6 +75,9 @@ New-BurntToastNotification # call a function in the 'burnttoast' module
 ```
 
 Should you need to update or remove a module, you can use the `update` and `uninstall` commands.
+
+## Packages
+All packages available on the official PowerShell gallery are available to install with the Kombucha CLI.
 
 ## Credits
 Thanks to the maintainers of [Scoop](http://github.com/lukesampson/scoop), especially Luke Sampson, from whose repository I stole a lot of stuff.
