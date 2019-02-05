@@ -1,6 +1,6 @@
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/lptstr/lptstr-images/master/proj/mouse/mouse-logos.png" alt="Long live the Ascii Mouse!"/></p>
+<img src="https://raw.githubusercontent.com/lptstr/lptstr-images/master/proj/kombucha/kombucha-logo-github.png" alt="Kombucha for ever!"/></p>
 <p align="center">
 <b><a href="https://github.com/lptstr/mouse#features">Features</a></b>
 |
@@ -16,80 +16,51 @@
 - - -
 <p align="center" >
 </p>
-<p align="center"><a href="https://github.com/lptstr/mouse"><img src="https://img.shields.io/github/languages/code-size/lptstr/mouse.svg" alt="Code-Size" /></a>
-<a href="https://github.com/lptstr/mouse"><img src="https://img.shields.io/github/repo-size/lptstr/mouse.svg" alt="Repository size" /></a>
- <a href="https://github.com/lptstr/mouse"><img src="https://img.shields.io/badge/lines%20of%20code-3000%2B-yellow.svg" alt="Lines of code" /></a> <a href="https://travis-ci.org/Kiedtl/mouse"><img src="https://travis-ci.org/Kiedtl/mouse.svg?branch=master" alt="Travis-CI" /></a>
-<a href="https://github.com/lptstr/mouse/blob/master/LICENSE"><img src="https://img.shields.io/github/license/lptstr/mouse.svg" alt="License" /></a></p>
+<p align="center"><a href="https://github.com/lptstr/kombucha"><img src="https://img.shields.io/github/languages/code-size/lptstr/kombucha.svg" alt="Code-Size" /></a>
+<a href="https://github.com/lptstr/kombucha"><img src="https://img.shields.io/github/repo-size/lptstr/kombucha.svg" alt="Repository size" /></a>
+ <a href="https://github.com/lptstr/kombucha"><img src="https://img.shields.io/badge/lines%20of%20code-1850%2B-green.svg" alt="Lines of code" /></a> <a href="https://travis-ci.org/lptstr/kombucha"><img src="https://travis-ci.org/lptstr/kombucha.svg?branch=master" alt="Travis-CI" /></a>
+<a href="https://github.com/lptstr/kombucha/blob/master/LICENSE"><img src="https://img.shields.io/github/license/lptstr/kombucha.svg" alt="License" /></a></p>
 </p><p align="center"><a href="http://spacemacs.org"><img src="https://cdn.rawgit.com/syl20bnr/spacemacs/442d025779da2f62fc86c2082703697714db6514/assets/spacemacs-badge.svg" /></a></p>
 
-
-Mouse is a simple, cross-platform way to manage, store, and backup your configuration files using GitHub repositories. Mouse tries to make it easy to manage your configuration files (e.g., like your Powershell profile or your `.vimrc`). It backs up your configuration file by uploading to a GitHub repository. 
+Kombucha is an extremely simple package manager for PowerShell.
+It is designed so that you can distribute the PowerShell modules **with** your project, and makes it easy to import them when you are ready.
 
 ## Features
-- :computer: (Almost!) completely cross-platform - works on macOS, Windows, and Linux.
+- :computer: Cross-platform - works on macOS, Windows, and Linux.
 - :moneybag: Absolutely free!
-- :closed_lock_with_key: AES-256 encryption with Git-Crypt, so you can add your `.authinfo` file to Mouse without any worry.
-- :wrench: <del>Mouse worries about updating itself and downloading patches, so you won't have to.</del> **Removed in commit [`598f14e`](https://github.com/lptstr/mouse/commit/598f14e707ef7e28876ead6c14c942dc201b2f95)**
-- :sparkles: Intuitive and memorable commands.
 - :clock130: Speed that is best measured by a stopwatch, not a calendar.
-- Automatically uploads everything to GitHub, so you can take your data to another computer as well.
 
 ## Installation Requirements
 
 - Windows 7 SP1+
-- [PowerShell 3](https://www.microsoft.com/en-us/download/details.aspx?id=34595) (or later) 
+- [PowerShell 3](https://www.microsoft.com/en-us/download/details.aspx?id=34595) (or later), PowerShell 5+ recommended 
 - [.NET Framework 4.5+](https://www.microsoft.com/net/download)
-- The Powershell execution policy must be set to RemoteSigned or ByPass.
-- [Git](http://git-scm.com) installed and configured.
-- [Git LFS](http://github.com/git-lfs/git-lfs) must be installed.
-- [Hub](http://github.com/github/hub) must installed and configured.
-- [GnuPG](https://gnupg.org/) must be installed (for Git-Crypt)
-- [Git-Crypt](http://github.com/agwa/git-crypt/) must be installed.
+- The PowerShellGet module must be installed.
 
-Most of the above can be installed with [Scoop](http://github.com/lukesampson/scoop) on Windows, and Homebrew on macOS. For example, on Windows one could run:
-
-```powershell
-scoop install pwsh git gpg
-scoop install git-lfs hub git-crypt
-```
-...and Scoop would automatically download, install, and add each of these programs to your PATH.
 
 ## Installation
 
 #### **Windows**
-- Simply run this command in PowerShell:<br>
-      ```powershell
-      curl 'https://getmouse.surge.sh/' | iex
-      ```  
-- Or, if you are scared of piping things into `iex`, you can just download the <br>installer instead (check the releases section).
-
-#### **macOS, Linux**
-Because the installer is not completely compatible with \*nix systems, I'd recommend that you manually install Mouse using the following steps:
-- go to your home directory in a terminal.
-- run `mkdir .mouse`, then `cd .mouse`.
-- run `mkdir dat`.
-- clone this repository into the app directory: `git clone git@github.com:lptstr/mouse.git app`
-- `cd` into the dat directory, then run the following commands:
-    - `git init `
-    - `hub create my-mouse-repo -d "My personal Mouse repository"`
-    - `git lfs track "*.zip"` 
-    - `git add .gitattributes`
-    - `git commit -a -q -m "Initialized Git LFS"`
-    - `git-crypt init`
-    - `echo "* filter=git-crypt diff=git-crypt" >> .gitattributes`
-    - `echo ".gitattributes !filter !diff" >> .gitattributes`
-    - `mkdir info`
-    - `git add .gitattributes`
-    - `git commit -a -q -m "Initialized Git-Crypt"`
-    - `git-crypt export-key $HOME/.mouse/git_crypt_key.key`
-    - `git-crypt lock`
-
-Once the Mouse installer has completed, you can run `mouse --version` to check that it installed successfully. Try typing `mouse help` for help. By default, Mouse is installed in `$HOME\.mouse\`, and unfortunately this cannot be changed in the current version of Mouse.
-
-**NOTE**: Mouse will automatically export the Git-Crypt key to `$HOME/.mouse/git_crypt_key.key`. It is highly recommended that this file is backed up somewhere safe - if this key is lost, you will lose all your data in Mouse.
+Try using [Scoop](https://scoop.sh).
+```
+scoop bucket add extras
+scoop install kombucha
+```
 
 ## Usage
-See the wiki.
+First, `cd` into your project directory.
+```
+cd <blah>
+```
+Then, initialize the directory.
+```
+kombucha init
+```
+Then, install some packages :grin:
+```
+kombucha install burnttoast@0.6.3 pslogging
+```
+Then, in your PowerShell code, you can import the module using the `ko
 
 ## Easter eggs
 I've buried around 8  easter eggs in Mouse. If you think you've found one, please file an issue with the `easter egg` label!
