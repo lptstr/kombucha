@@ -40,11 +40,17 @@ It is designed so that you can distribute the PowerShell modules **with** your p
 
 ## Installation
 
-#### **Windows**
+### **Windows**
 Try using [Scoop](https://scoop.sh).
 ```
 scoop bucket add extras
 scoop install kombucha
+```
+
+### **macOS / Linux**
+Clone the repository into whatever directory you want, then add the `bin/kombucha.ps1` file to your PATH.
+```
+git clone https://github.com/lptstr/kombucha.git
 ```
 
 ## Usage
