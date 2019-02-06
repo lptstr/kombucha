@@ -1,9 +1,9 @@
 {
     "homepage": "https://github.com/lptstr/kombucha",
-    "version": "0.1.0",
-    "url": "https://codeload.github.com/lptstr/kombucha/zip/v0.1.0#/dl.7z",
-    "extract_dir": "kombucha-0.1.0",
-    "hash": "051dd37864b9eac7262ccd9eec500f49b849e59d42e476341e36acb91dba041f",
+    "version": "0.2.0",
+    "url": "https://codeload.github.com/lptstr/kombucha/zip/v0.2.0#/dl.7z",
+    "extract_dir": "kombucha-0.2.0",
+    "hash": "600a4a2d48990d84fd4c8e2838cf6e00938059c8957a7687eed1f3bca5b4073c",
     "bin": "bin\\kombucha.ps1",
     "checkver": "github",
     "autoupdate": {
@@ -11,4 +11,3 @@
         "extract_dir": "kombucha-$version"
     }
 }
-
