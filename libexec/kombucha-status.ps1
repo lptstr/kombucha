@@ -22,5 +22,16 @@ if (!(test-path '.\kombucha.json')) {
 	break
 }
 
+"$E(0lqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqk$E(B"
+"$E(0x$E(B     [package]         $E[1m$E[38;2;110;140;253m[$E[4mcurrent$E[24m]`t$E[1m$E[38;2;253;140;110m[$E[4mlatest$E[24m]$E[0m $E(0x$E(B"
+"$E(0xqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqx$E(B"
+
+# Get list of packages and their current versions
+$manifest = get-content './kombucha.json' | convertfrom-json
+$i = 0
+foreach ($package in $manifest.packages.package) {
+}
+
+"$E(0mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj$E(B"
 
 pop-location
