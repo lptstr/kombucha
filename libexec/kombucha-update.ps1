@@ -9,6 +9,8 @@
 #     -n, --nosave       Do not update the manifest with the package name.
 
 . "$psscriptroot\..\lib\core.ps1"
+. "$psscriptroot\..\lib\network.ps1"
+. "$psscriptroot\..\lib\filesys.ps1"
 . "$psscriptroot\..\lib\getopt.ps1"
 
 $opt, $pkg, $err = getopt $args 'n' 'nosave'
