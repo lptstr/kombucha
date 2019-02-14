@@ -1,0 +1,154 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>Microsoft.PowerShell.Commands.PSRepositoryItemInfo</T>
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="Name">BurntToast</S>
+      <S N="Version">0.6.3</S>
+      <S N="Type">Module</S>
+      <S N="Description">Module for creating and displaying Toast Notifications on Microsoft Windows 10.</S>
+      <S N="Author">Joshua (Windos) King</S>
+      <S N="CompanyName">Windos</S>
+      <S N="Copyright">(c) 2015 Joshua (Windos) King. All rights reserved.</S>
+      <DT N="PublishedDate">2019-02-02T11:32:54-05:00</DT>
+      <Nil N="InstalledDate" />
+      <Nil N="UpdatedDate" />
+      <URI N="LicenseUri">https://github.com/Windos/BurntToast/blob/master/LICENSE</URI>
+      <URI N="ProjectUri">https://github.com/Windos/BurntToast</URI>
+      <URI N="IconUri">https://raw.githubusercontent.com/Windos/BurntToast/master/Media/BurntToast-Logo.png</URI>
+      <Obj N="Tags" RefId="1">
+        <TN RefId="1">
+          <T>System.Object[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST>
+          <S>Notifications</S>
+          <S>Utilities</S>
+          <S>Windows10</S>
+          <S>Toast</S>
+          <S>PSModule</S>
+        </LST>
+      </Obj>
+      <Obj N="Includes" RefId="2">
+        <TN RefId="2">
+          <T>System.Collections.Hashtable</T>
+          <T>System.Object</T>
+        </TN>
+        <DCT>
+          <En>
+            <S N="Key">Command</S>
+            <Obj N="Value" RefId="3">
+              <TNRef RefId="1" />
+              <LST>
+                <S>New-BTAction</S>
+                <S>New-BTAppId</S>
+                <S>New-BTAudio</S>
+                <S>New-BTBinding</S>
+                <S>New-BTButton</S>
+                <S>New-BTContent</S>
+                <S>New-BTContextMenuItem</S>
+                <S>New-BTHeader</S>
+                <S>New-BTImage</S>
+                <S>New-BTInput</S>
+                <S>New-BTProgressBar</S>
+                <S>New-BTSelectionBoxItem</S>
+                <S>New-BTText</S>
+                <S>New-BTVisual</S>
+                <S>New-BurntToastNotification</S>
+                <S>Submit-BTNotification</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Obj N="Value" RefId="4">
+              <TNRef RefId="1" />
+              <LST />
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+          <En>
+            <S N="Key">Function</S>
+            <Obj N="Value" RefId="5">
+              <TNRef RefId="1" />
+              <LST>
+                <S>New-BTAction</S>
+                <S>New-BTAppId</S>
+                <S>New-BTAudio</S>
+                <S>New-BTBinding</S>
+                <S>New-BTButton</S>
+                <S>New-BTContent</S>
+                <S>New-BTContextMenuItem</S>
+                <S>New-BTHeader</S>
+                <S>New-BTImage</S>
+                <S>New-BTInput</S>
+                <S>New-BTProgressBar</S>
+                <S>New-BTSelectionBoxItem</S>
+                <S>New-BTText</S>
+                <S>New-BTVisual</S>
+                <S>New-BurntToastNotification</S>
+                <S>Submit-BTNotification</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">RoleCapability</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+        </DCT>
+      </Obj>
+      <Nil N="PowerShellGetFormatVersion" />
+      <S N="ReleaseNotes"># 0.6.3_x000D__x000A__x000D__x000A_* Update Windows Community Toolkit (UWP Notifications) to 5.0.0._x000D__x000A_  * Also switched to the UAP variant, as the .NET Standard one was causing issues for some users._x000D__x000A_* (BACKEND) Implemented CI pester tests on Azure DevOps Pipelines, including code coverage stats._x000D__x000A_* Fixed style issues flagged by Codacy, mainly Markdown headers._x000D__x000A_* Added WhatIf support to all functions, laying ground work for expanded (read: any) Pester tests._x000D__x000A_* Functions all in .psm1 now, instead of separate .ps1 files. SPEED!</S>
+      <Obj N="Dependencies" RefId="6">
+        <TNRef RefId="1" />
+        <LST />
+      </Obj>
+      <S N="RepositorySourceLocation">https://www.powershellgallery.com/api/v2</S>
+      <S N="Repository">PSGallery</S>
+      <S N="PackageManagementProvider">NuGet</S>
+      <Obj N="AdditionalMetadata" RefId="7">
+        <TN RefId="3">
+          <T>System.Management.Automation.PSCustomObject</T>
+          <T>System.Object</T>
+        </TN>
+        <MS>
+          <S N="copyright">(c) 2015 Joshua (Windos) King. All rights reserved.</S>
+          <S N="description">Module for creating and displaying Toast Notifications on Microsoft Windows 10.</S>
+          <S N="requireLicenseAcceptance">False</S>
+          <S N="releaseNotes"># 0.6.3_x000D__x000A__x000D__x000A_* Update Windows Community Toolkit (UWP Notifications) to 5.0.0._x000D__x000A_  * Also switched to the UAP variant, as the .NET Standard one was causing issues for some users._x000D__x000A_* (BACKEND) Implemented CI pester tests on Azure DevOps Pipelines, including code coverage stats._x000D__x000A_* Fixed style issues flagged by Codacy, mainly Markdown headers._x000D__x000A_* Added WhatIf support to all functions, laying ground work for expanded (read: any) Pester tests._x000D__x000A_* Functions all in .psm1 now, instead of separate .ps1 files. SPEED!</S>
+          <S N="isLatestVersion">True</S>
+          <S N="isAbsoluteLatestVersion">True</S>
+          <S N="versionDownloadCount">1520</S>
+          <S N="downloadCount">29833</S>
+          <S N="packageSize">199993</S>
+          <S N="published">2/2/2019 11:32:54 AM -05:00</S>
+          <S N="created">2/2/2019 11:32:54 AM -05:00</S>
+          <S N="lastUpdated">2/14/2019 12:04:52 PM -05:00</S>
+          <S N="tags">Notifications Utilities Windows10 Toast PSModule PSFunction_New-BTAction PSCommand_New-BTAction PSFunction_New-BTAppId PSCommand_New-BTAppId PSFunction_New-BTAudio PSCommand_New-BTAudio PSFunction_New-BTBinding PSCommand_New-BTBinding PSFunction_New-BTButton PSCommand_New-BTButton PSFunction_New-BTContent PSCommand_New-BTContent PSFunction_New-BTContextMenuItem PSCommand_New-BTContextMenuItem PSFunction_New-BTHeader PSCommand_New-BTHeader PSFunction_New-BTImage PSCommand_New-BTImage PSFunction_New-BTInput PSCommand_New-BTInput PSFunction_New-BTProgressBar PSCommand_New-BTProgressBar PSFunction_New-BTSelectionBoxItem PSCommand_New-BTSelectionBoxItem PSFunction_New-BTText PSCommand_New-BTText PSFunction_New-BTVisual PSCommand_New-BTVisual PSFunction_New-BurntToastNotification PSCommand_New-BurntToastNotification PSFunction_Submit-BTNotification PSCommand_Submit-BTNotification PSIncludes_Function</S>
+          <S N="developmentDependency">False</S>
+          <S N="updated">2019-02-14T12:04:52Z</S>
+          <S N="NormalizedVersion">0.6.3</S>
+          <S N="Authors">Joshua (Windos) King</S>
+          <S N="IsPrerelease">false</S>
+          <S N="ItemType">Module</S>
+          <S N="FileList">BurntToast.nuspec|BurntToast.psd1|BurntToast.psm1|config.json|README.md|Images\BurntToast-Logo.png|Images\BurntToast.png|lib\Microsoft.Toolkit.Uwp.Notifications\Microsoft.Toolkit.Uwp.Notifications.dll|lib\Microsoft.Toolkit.Uwp.Notifications\Microsoft.Toolkit.Uwp.Notifications.xml</S>
+          <S N="GUID">751a2aeb-a68f-422e-a2ea-376bdd81612a</S>
+          <S N="PowerShellVersion">5.0</S>
+          <S N="CompanyName">king.geek.nz</S>
+        </MS>
+      </Obj>
+      <S N="InstalledLocation">E:\Apps\Repos\LPTSTR\kombucha\packages\BurntToast\0.6.3</S>
+    </MS>
+  </Obj>
+</Objs>
