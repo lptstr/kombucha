@@ -1,5 +1,5 @@
 function getversion() {
-	"1.0.0"
+	"0.3.0"
 }
 
 function is_installed($pkg) {
