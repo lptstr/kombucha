@@ -6,6 +6,8 @@
 #     -l, --latest       Get the latest version of the package (may take longer)
 
 . "$psscriptroot\..\lib\core.ps1"
+. "$psscriptroot\..\lib\network.ps1"
+. "$psscriptroot\..\lib\filesys.ps1"
 . "$psscriptroot\..\lib\getopt.ps1"
 
 $opt, $extra_args, $err = getopt $args 'l' 'latest'
