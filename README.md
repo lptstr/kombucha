@@ -43,8 +43,7 @@ It is designed so that you can distribute the PowerShell modules **with** your p
 ### **Windows**
 Try using [Scoop](https://scoop.sh).
 ```
-scoop bucket add extras
-scoop install kombucha
+scoop install https://raw.githubusercontent.com/lptstr/kombucha/master/.scoop/kombucha.json
 ```
 
 ### **macOS / Linux**
