@@ -81,6 +81,8 @@ New-BurntToastNotification # call a function in the 'burnttoast' module
 
 Should you need to update or remove a module, you can use the `update` and `uninstall` commands.
 
+Of course, you will not want all the packages to be tracked by Git. Then, after cloning the repository WITHOUT the packages, you can restore then with `kombucha restore`.
+
 ## Packages
 All packages available on the official PowerShell gallery are available to install with the Kombucha CLI.
 
