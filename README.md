@@ -25,6 +25,8 @@
 Kombucha is an extremely simple package manager for PowerShell.
 It is designed so that you can distribute any dependencies **with** your project, and also allows for global installs, like npm or pip.
 
+Kombucha is currently rough-around-the-edges and still in alpha stage.
+
 ## Features
 - :computer: Cross-platform - works on macOS, Windows, and Linux.
 - :moneybag: Absolutely free!
