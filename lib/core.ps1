@@ -2,39 +2,6 @@ function getversion() {
 	"0.4.0"
 }
 
-function is_installed($pkg) {
-	$isin = $false
-	$packages = @()	
-	$manifestobj = get-content './kombucha.json' | convertfrom-json
-	$manifest = @{}
-	$manifestobj.psobject.properties | Foreach { $manifest[$_.Name] = $_.Value }
-	foreach ($package in $manifest.packages.package) {
-		$packages += $package
-	}
-	foreach ($package in $packages) {
-		if ($pkg -eq $package) {
-			$isin = $true
-		}
-	}
-	return $isin
-}
-
-function update_manifest($pkg, $ver) {
-	$i = 0
-	$pos = 0
-	$manifest = get-content './kombucha.json' | convertfrom-json
-	foreach ($package in $manifest.packages.package) {
-		if ($package -eq $pkg) {
-			$pos = $i
-			break
-		}
-		$i++
-	}
-	($manifest.packages[$pos]).version = $ver
-	set-content './kombucha.json' ($manifest | convertto-json)
-}
-
-
 function printf($txt) {
 	write-host "[kombucha] $txt" -nonewline
 }
