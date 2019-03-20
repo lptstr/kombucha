@@ -1,7 +1,7 @@
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/lptstr/lptstr-images/master/proj/kombucha/kombucha-logo-github.png" alt="Kombucha for ever!"/></p>
-<p align="center">
+<!--<p align="center">
 <b><a href="https://github.com/lptstr/kombucha#features">Features</a></b>
 |
 <b><a href="https://github.com/lptstr/kombucha#installation-requirements">Installation Requirements</a></b>
@@ -20,7 +20,7 @@
 <a href="https://github.com/lptstr/kombucha"><img src="https://img.shields.io/github/repo-size/lptstr/kombucha.svg" alt="Repository size" /></a>
  <a href="https://github.com/lptstr/kombucha"><img src="https://img.shields.io/badge/lines%20of%20code-1850%2B-green.svg" alt="Lines of code" /></a> <a href="https://travis-ci.org/lptstr/kombucha"><img src="https://travis-ci.org/lptstr/kombucha.svg?branch=master" alt="Travis-CI" /></a>
 <a href="https://github.com/lptstr/kombucha/blob/master/LICENSE"><img src="https://img.shields.io/github/license/lptstr/kombucha.svg" alt="License" /></a></p>
-</p><p align="center"><a href="http://spacemacs.org"><img src="https://cdn.rawgit.com/syl20bnr/spacemacs/442d025779da2f62fc86c2082703697714db6514/assets/spacemacs-badge.svg" /></a></p>
+</p><p align="center"><a href="http://spacemacs.org"><img src="https://cdn.rawgit.com/syl20bnr/spacemacs/442d025779da2f62fc86c2082703697714db6514/assets/spacemacs-badge.svg" /></a></p>-->
 
 Kombucha is an extremely simple package manager for PowerShell.
 It is designed so that you can distribute the PowerShell modules **with** your project, and makes it easy to import them into your code when you are ready.
