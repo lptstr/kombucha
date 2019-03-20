@@ -30,7 +30,10 @@ It is designed so that you can distribute the PowerShell modules **with** your p
 - :moneybag: Absolutely free!
 - :clock130: Speed that is best measured by a stopwatch, not a calendar.
 
-## Installation Requirements
+
+Kombucha is currently WIP, so there isn't a way to install it yet.
+
+<!--## Installation Requirements
 
 - Windows 7 SP1+
 - [PowerShell 3](https://www.microsoft.com/en-us/download/details.aspx?id=34595) (or later), PowerShell 5+ recommended 
@@ -89,3 +92,4 @@ All packages available on the official PowerShell gallery are available to insta
 ## Credits
 Thanks to the maintainers of [Scoop](http://github.com/lukesampson/scoop), especially Luke Sampson, from whose repository I stole a lot of stuff.
 
+-->
