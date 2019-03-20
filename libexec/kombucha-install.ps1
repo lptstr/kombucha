@@ -1,4 +1,4 @@
-# Usage: kombucha install [packages@version] [options]
+# Usage: kombucha install [packages] [options]
 # Summary: Install packages in a project directory.
 # Help: Create the appropriate directories and install packages
 # for use in scripts or command-line usage.
@@ -22,7 +22,7 @@ $unknown_msg = "$E[1m$E[38;2;250;250;0m???$E[0m"
 $warn_msg = "$E[1m$E[38;2;250;250;0mwarn$E[0m"
 $info_msg = "$E[1m$E[38;2;120;120;255minfo$E[0m"
 
-$opt, $packages, $errors = getopt $args 'gf' 'global','force'
+$opt, $packages, $errors = getargs $args 'gf' 'global','force'
 $global = $opt.global -or $opt.g
 $force = $opt.force -or $opt.f
 
