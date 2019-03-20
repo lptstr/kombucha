@@ -25,6 +25,8 @@
 Kombucha is an extremely simple package manager for PowerShell.
 It is designed so that you can distribute any dependencies **with** your project, and also allows for global installs, like npm or pip.
 
+Kombucha is currently rough-around-the-edges and still in alpha stage.
+
 ## Features
 - :computer: Cross-platform - works on macOS, Windows, and Linux.
 - :moneybag: Absolutely free!
@@ -33,7 +35,8 @@ It is designed so that you can distribute any dependencies **with** your project
 
 Kombucha is currently WIP, so there isn't a way to install it yet.
 
-<!--## Installation Requirements
+<!--
+## Installation Requirements
 
 - Windows 7 SP1+
 - [PowerShell 3](https://www.microsoft.com/en-us/download/details.aspx?id=34595) (or later), PowerShell 5+ recommended 
@@ -54,42 +57,15 @@ Clone the repository into whatever directory you want, then add the `bin/kombuch
 ```
 git clone https://github.com/lptstr/kombucha.git
 ```
+-->
 
-## Usage
-
-First, `cd` into your project directory.
-```
-cd <blah>
-```
-Then, initialize the directory.
-```
-kombucha init
-```
-Then, install some packages :grin:
-```
-kombucha install burnttoast@0.6.3 pslogging
-```
-Then, in your PowerShell code, you can import the module using the `kpm-client.ps1` file that the Kombucha CLI copied into your project directory on init.
-
-First, import that file, the import the modules you installed using the `imports` function:
-```powershell
-. "$psscriptroot\kpm-client.ps1"
-imports 'burnttoast'
-imports 'pslogging'
-
-# thousands of lines later...
-
-New-BurntToastNotification # call a function in the 'burnttoast' module
-```
-
-Should you need to update or remove a module, you can use the `update` and `uninstall` commands.
-
-Of course, you will not want all the packages to be tracked by Git. Then, after cloning the repository WITHOUT the packages, you can restore then with `kombucha restore`.
-
-## Packages
-All packages available on the official PowerShell gallery are available to install with the Kombucha CLI.
+## TODO
+Do you want to contribute? Try implementing these features:
+- [x] `install` command
+- [ ] `info` command
+- [ ] `list` command
+- [ ] `search` command (which also lists all available packages)
 
 ## Credits
 Thanks to the maintainers of [Scoop](http://github.com/lukesampson/scoop), especially Luke Sampson, from whose repository I stole a lot of stuff.
 
--->
