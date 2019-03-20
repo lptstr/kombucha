@@ -1,5 +1,5 @@
 function command_files {
-    (Get-ChildItem (relpath '..\libexec')) | Where-Object { $_.name -match 'kombucha-.*?\.ps1$' }
+    (Get-ChildItem (relpath '../libexec')) | Where-Object { $_.name -match 'kombucha-.*?\.ps1$' }
 }
 
 function commands {
@@ -11,14 +11,13 @@ function command_name($filename) {
 }
 
 function command_path($cmd) {
-    $cmd_path = relpath "..\libexec\kombucha-$cmd.ps1"
+    $cmd_path = relpath "../libexec/kombucha-$cmd.ps1"
 
     $cmd_path
 }
 
 function exec($cmd, $arguments) {
     $cmd_path = command_path $cmd
-
     & $cmd_path @arguments
 }
 

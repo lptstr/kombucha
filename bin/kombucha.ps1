@@ -7,20 +7,14 @@ param(
 set-strictmode -off
 
 # Escape character, needed for ANSI terminal sequences
-[char]$global:E = [char]27
+[char]$E = [char]27
 
 # Load files with helper functions
 # Also load the commands file which loads
 # command implementations
-. "$psscriptroot\..\lib\core.ps1"
-. "$psscriptroot\..\lib\commands.ps1"
-. "$psscriptroot\..\lib\filesys.ps1"
-
-#	. "$psscriptroot\..\lib\ravenclient.ps1"
-#	$ravenClient = New-RavenClient -SentryDsn $dsn
-#	[string]$dsn = "blah blah"
-#	$global:cmd = $cmd
-#	$global:args = $args
+. "$psscriptroot/../lib/core.ps1"
+. "$psscriptroot/../lib/commands.ps1"
+. "$psscriptroot/../lib/filesys.ps1"
 
 # Load commands
 $commands = commands

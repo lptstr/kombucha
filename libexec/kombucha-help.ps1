@@ -5,11 +5,10 @@ param(
 	$cmd
 )
 
-. "$psscriptroot\..\lib\core.ps1"
-. "$psscriptroot\..\lib\network.ps1"
-. "$psscriptroot\..\lib\filesys.ps1"
-. "$psscriptroot\..\lib\commands.ps1"
-. "$psscriptroot\..\lib\help.ps1"
+. "$psscriptroot/../lib/core.ps1"
+. "$psscriptroot/../lib/filesys.ps1"
+. "$psscriptroot/../lib/commands.ps1"
+. "$psscriptroot/../lib/help.ps1"
 
 
 function print_help($cmd) {

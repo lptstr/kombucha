@@ -1,99 +1,91 @@
 # Usage: kombucha install [packages@version] [options]
 # Summary: Install packages in a project directory.
-# Help: Create the appropriate directories and install packages.
-#
-# To install packages of a specific version, append '@<version>' to 
-# the end of the package name. E.g.:
-#     kombucha install burnttoast@0.6.1 
+# Help: Create the appropriate directories and install packages
+# for use in scripts or command-line usage.
 #
 # Options:
-#     -f, --force        Force the installation of the package, even if it is already installed.
-#     -n, --nosave       Do not update the manifest with the package name.
+#     -g, --global       Install the package globally.
 
-. "$psscriptroot\..\lib\core.ps1"
-. "$psscriptroot\..\lib\network.ps1"
-. "$psscriptroot\..\lib\filesys.ps1"
-. "$psscriptroot\..\lib\getopt.ps1"
+. "$psscriptroot/../lib/core.ps1"
+. "$psscriptroot/../lib/unix.ps1"
+. "$psscriptroot/../lib/shim.ps1"
+. "$psscriptroot/../lib/path.ps1"
+. "$psscriptroot/../lib/args.ps1"
 
-$opt, $pkg, $err = getopt $args 'fn' 'force','nosave'
-$force = $opt.force -or $opt.f
-$nosave = $opt.nosave -or $opt.n
 $E = [char]27
+$error_msg = "$E[1m$E[38;2;255;10;010merr!$E[0m"
+$done_msg = "$E[1m$E[38;2;100;255;80mdone$E[0m"
+$warn_msg = "$E[1m$E[38;2;250;250;0mwarn$E[0m"
+$info_msg = "$E[1m$E[38;2;120;120;255minfo$E[0m"
+
+$opt, $packages, $errors = getopt $args 'g' 'global'
+$global = $opt.global -or $opt.g
+
+if ($errors) {
+    printf "$error_msg argument error: $err`n"
+    exit 1
+}
 
 trap { }
 
 push-location
+foreach ($_pkg in $packages) {
+    $_ = $_pkg
+    printf "$info_msg retrieving manifest for '$_'... "
+    $manifest_json = curl -sSL "https://raw.githubusercontent.com/lptstr/kombucha-registry/master/reg/$_.json"
+    if ($manifest_json -like "404*") {
+        $error_msg
+        printf "$error_msg package '$package' does not exist. aborting.`n"
+        continue
+    }
+    $manifest = $manifest_json | convertfrom-json
+    $package = $manifest.name
+    $vendor = $manifest.vendor
+    $done_msg
 
-if (!(test-path '.\kombucha.json')) {
-	error "440 Required file 'kombucha.json' not found."
-	error "Make sure you are in the correct project directory, or run 'kombucha init'."
-	break
-}
+	
+    printf "$info_msg checking repository '$package' from '$vendor'... "
+    git ls-remote "git@github.com:$vendor/$package" -q 2> $null
+    if (!$?) {
+        $error_msg
+        printf "$error_msg repository does not appear to exist. aborting.`n"
+        continue
+    }
+    else {
+        $done_msg
+    }
 
-foreach ($_pkg in $pkg) {
-	$_ = $_pkg
-	$package = (($_).Split('@'))[0]
-	$version = (($_).Split('@'))[1]
+    printf "$info_msg cloning package '${package}'... "
+    if (test-path "$(get_tmp)/${vendor}-${package}") {
+        remove-item -r -fo "$(get_tmp)/${vendor}-${package}"
+    }
+    git clone -q "https://github.com/$vendor/$package" "$(get_tmp)/${vendor}-${package}" > $null
+    $done_msg
 
-	if (!$force) {
-		# Check that the package is not already installed
-		if (is_installed $package) {
-			error "416 The package '$_' is already installed."
-			error "Try 'kombucha update $_' to update the package.`n"
-			continue
-		}
-	}
-
-	write-host "Finding package '${package}'... " -nonewline
-	$info = find-package $package
-
-	if ($null -eq $info) { 
-		"$E[38;2;255;10;010merror!$E[38;2;150;150;150m"
-		error "404 Package '$_' was not found!" 
-		continue
-	}
-	else {
-		# Now the party starts
-		"$E[38;2;100;255;80mdone$E[38;2;150;150;150m"
-		$latestv = $info.version
-		if ($version) {
-			write-host "Retrieving versions... " -nonewline
-			$info = find-package $package -requiredversion $version
-
-			if ($null -eq $info) { 
-				"$E[38;2;255;10;010merror!$E[38;2;150;150;150m" 
-				error "404 Package $package of the version $version was not found!"
-				continue
-			} else { 
-				"$E[38;2;100;255;80mdone$E[38;2;150;150;150m" 
-			}
-		} else {
-			$version = $latestv
-		}
-
-		write-host "Downloading `'${_}`'... " -nonewline
-		cd packages
-
-		if ($force) {
-			find-package $package -requiredversion $version | save-module -path (get-location) -force
-		} else {
-			find-package $package -requiredversion $version | save-module -path (get-location)
-		}
-
-		"$E[38;2;100;255;80mdone$E[38;2;150;150;150m"
-
-		if (!$nosave) {
-			write-host "Updating project manifest... " -nonewline
-			cd ..
-			$manifest = get-content '.\kombucha.json' -encoding utf8 | convertfrom-json -ea stop
-			$pkginfo = new-object psobject
-			$pkginfo | add-member package $package 
-			$pkginfo | add-member version $version
-			$manifest.packages += $pkginfo
-			set-content -path '.\kombucha.json' -value ($manifest | convertto-json) -encoding utf8
-			"$E[38;2;100;255;80mdone$E[38;2;150;150;150m`n"
-		} 
-	}
+    if ($manifest.global -eq "true" -and $global -eq $false) {
+        $install_global = $true
+        printf "$warn_msg installing this package as global!`n"
+    }
+    else {
+        $install_global = $global
+    }
+	
+    if ($install_global) {
+        printf "$info_msg adding $package to your path... "
+        copy-item -r -fo "$(get_tmp)/${vendor}-${package}" "$(get_pkgdir)/${vendor}-${package}"
+        cd "$(get_pkgdir)/${vendor}-${package}"
+        foreach ($file in $manifest.bin) {
+            create_shim $file | out-null
+        }
+        $done_msg
+    }
+    else {
+        printf "$info_msg copying $package to current dir... "
+        ensure "./deps/" >  $null
+        copy-item -r -fo "$(get_tmp)/${vendor}-${package}" "./deps/${vendor}-${package}"
+        $done_msg
+    }
+    ""
 }
 
 pop-location

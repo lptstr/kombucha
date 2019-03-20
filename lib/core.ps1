@@ -34,6 +34,11 @@ function update_manifest($pkg, $ver) {
 	set-content './kombucha.json' ($manifest | convertto-json)
 }
 
+
+function printf($txt) {
+	write-host "[kombucha] $txt" -nonewline
+}
+
 function abort($msg, [int] $exit_code=1) { write-host $msg -f red; exit $exit_code }
 function error($msg) { write-host "ERROR $msg" -f darkred }
 function warn($msg) {  write-host "WARN  $msg" -f darkyellow }
