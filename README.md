@@ -62,8 +62,8 @@ git clone https://github.com/lptstr/kombucha.git
 ## TODO
 Do you want to contribute? Try implementing these features:
 - [x] `install` command
-- [ ] `info` command
-- [ ] `list` command
+- [x] `info` command
+- [ ] `list` command (list globally installed packages)
 - [ ] `search` command (which also lists all available packages)
 
 ## Credits
