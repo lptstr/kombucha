@@ -65,6 +65,7 @@ Do you want to contribute? Try implementing these features:
 - [x] `info` command
 - [ ] `list` command (list globally installed packages)
 - [ ] `search` command (which also lists all available packages)
+- [ ] `uninstall` command (remove globally installed packages)
 
 ## Credits
 Thanks to the maintainers of [Scoop](http://github.com/lukesampson/scoop), especially Luke Sampson, from whose repository I stole a lot of stuff.
