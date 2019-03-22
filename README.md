@@ -32,8 +32,29 @@ Kombucha is currently rough-around-the-edges and still in alpha stage.
 - :moneybag: Absolutely free!
 - :clock130: Speed that is best measured by a stopwatch, not a calendar.
 
+## Installation
+Kombucha is currently WIP, so there isn't an **(official)** way to install it yet. If you're just dying to try it out, there are to ways to install it:
 
-Kombucha is currently WIP, so there isn't a way to install it yet.
+**NOTE**: Before installing, make sure that you have at least PowerShell 5 (or later) installed with .NET 4+.
+
+- Using [Scoop](https://scoop.sh). Use this method if you are on Windows. Make sure that you have the `extras` bucket installed:
+    ```
+    $ scoop bucket list
+    main
+    java
+    ...
+    extras
+    ```
+    Then install kombucha:
+    ```
+    $ scoop install kombucha
+    ```
+- Using `git`. use this method if you are macOS/Linux.
+    ```
+    $ git clone git@github.com:lptstr/kombucha.git kombucha
+    $ chmod +x bin/kombucha.ps1    # just in case
+    $ ln ./bin/kombucha.ps1 ~/bin/kombucha
+
 
 <!--
 ## Installation Requirements
